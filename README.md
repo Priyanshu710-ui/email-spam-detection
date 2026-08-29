@@ -1,109 +1,323 @@
-# 📧 Email Spam Detection
+# 📧 Spam Sentinel
 
-An NLP project that automatically classifies emails as **Spam** or
-**Legitimate (Ham)** using classic text-processing and machine learning
-techniques, with a Streamlit UI for live predictions.
+<p align="center">
+  <strong>Real-world NLP powered email spam detection</strong><br/>
+  Classify emails as <strong>Spam</strong> or <strong>Legitimate</strong> with TF-IDF + Linear SVM.
+</p>
 
-## What is it?
+<p align="center">
+  <a href="https://github.com/Priyanshu710-ui/email-spam-detection"><img src="https://img.shields.io/github/stars/Priyanshu710-ui/email-spam-detection?style=for-the-badge" alt="GitHub stars"></a>
+  <a href="https://github.com/Priyanshu710-ui/email-spam-detection"><img src="https://img.shields.io/github/license/Priyanshu710-ui/email-spam-detection?style=for-the-badge" alt="License"></a>
+  <img src="https://img.shields.io/badge/Python-3.12+-blue?style=for-the-badge&logo=python" alt="Python">
+  <img src="https://img.shields.io/badge/Streamlit-App-red?style=for-the-badge&logo=streamlit" alt="Streamlit">
+  <img src="https://img.shields.io/badge/NLP-TF--IDF-purple?style=for-the-badge" alt="NLP">
+</p>
 
-Build an NLP model that automatically classifies emails as spam or
-legitimate — end to end, from raw text to a deployable web interface.
+---
 
-## Tech Stack
+## 🚀 What is Spam Sentinel?
 
-- **Python**
-- **Pandas** — data loading and handling
-- **Scikit-learn** — TF-IDF vectorization, Naive Bayes classifier, evaluation
-- **NLTK** — tokenization, stopword removal, stemming
-- **Streamlit** — interactive prediction interface
+**Spam Sentinel** is an end-to-end machine learning project that detects whether an email is **spam** or **legitimate (ham)**.
 
-## Core Features
+Instead of using a tiny synthetic dataset, the project processes **real email messages from the SpamAssassin public corpus**, performs NLP preprocessing, converts text into TF-IDF features, compares multiple machine-learning algorithms, and serves the winning model through a Streamlit application.
 
-- Text preprocessing (lowercasing, URL/HTML/punctuation/number stripping)
-- Tokenization
-- Feature extraction (TF-IDF, unigrams + bigrams)
-- Spam classification (Multinomial Naive Bayes)
-- Prediction interface (Streamlit web app)
+### ✨ Why this project is worth checking out
 
-## Skills You'll Learn
+- 🧠 Real NLP pipeline from raw email text to prediction
+- 📚 **4,273 unique emails** after cleaning and duplicate removal
+- 🔤 TF-IDF with **unigrams + bigrams**
+- 🤖 Compares **Naive Bayes, Logistic Regression, and Linear SVM**
+- 🏆 **Linear SVM** selected as the best model
+- 📈 **98.60% held-out test accuracy**
+- 🎯 **0.980 spam F1-score**
+- 🔍 Shows influential text features behind predictions
+- 🖥️ Interactive Streamlit interface
+- 📊 Includes an EDA notebook for data analysis
 
-- Natural Language Processing
-- TF-IDF
-- Text classification
-- Feature extraction
-- Model evaluation
+---
 
-## Project Structure
+## 🏆 Model Results
 
+| Model | Accuracy | Precision | Recall | F1 Score |
+|---|---:|---:|---:|---:|
+| Multinomial Naive Bayes | 97.89% | 97.31% | 96.66% | 96.98% |
+| Logistic Regression | 98.13% | 96.70% | 97.99% | 97.34% |
+| **Linear SVM 🏆** | **98.60%** | **97.67%** | **98.33%** | **98.00%** |
+
+> **Evaluation note:** results are reported on the held-out test split used during training. They should not be interpreted as production accuracy on arbitrary future email traffic.
+
+---
+
+## 🧩 How It Works
+
+```text
+                    📩 Raw Email
+                         │
+                         ▼
+                🧹 Text Preprocessing
+                         │
+                         ▼
+              🔤 TF-IDF Feature Extraction
+                 (Unigrams + Bigrams)
+                         │
+            ┌────────────┼────────────┐
+            ▼            ▼            ▼
+       Naive Bayes   Logistic Reg.  Linear SVM
+            │            │            │
+            └────────────┼────────────┘
+                         ▼
+                 📊 Model Evaluation
+                         │
+                         ▼
+                  🏆 Best Model
+                         │
+                         ▼
+                  🖥️ Streamlit App
+                         │
+                         ▼
+                 🚨 Spam / ✅ Ham
 ```
+
+---
+
+## 📊 Dataset
+
+The project uses email messages collected from the **Apache SpamAssassin public corpus**.
+
+After extraction, text cleaning, and exact duplicate removal:
+
+| Class | Emails |
+|---|---:|
+| ✅ Ham | 2,776 |
+| 🚨 Spam | 1,497 |
+| **Total** | **4,273** |
+
+The raw corpus is intentionally **not committed to this repository**. The `data/raw/` directory is ignored by Git.
+
+---
+
+## 🧠 NLP Pipeline
+
+Each email passes through a preprocessing pipeline that includes:
+
+1. HTML cleanup
+2. URL normalization
+3. Whitespace normalization
+4. Tokenization
+5. Stopword removal
+6. Stemming/normalization
+7. TF-IDF vectorization
+8. Unigram + bigram feature extraction
+
+This turns unstructured email text into numerical features that classical machine-learning algorithms can learn from.
+
+---
+
+## 🤖 Models Compared
+
+### Multinomial Naive Bayes
+A strong baseline for sparse text classification.
+
+### Logistic Regression
+A linear classifier that performs well with high-dimensional TF-IDF features.
+
+### Linear SVM 🏆
+The best-performing model in this project, achieving a **0.980 spam F1-score** on the held-out test set.
+
+The best model and TF-IDF vectorizer are saved under `model/` for use by the Streamlit application.
+
+---
+
+## 🖥️ Streamlit App
+
+The app lets users paste an email and receive a prediction in real time.
+
+### What it provides
+
+- 🚨 Spam / ✅ Legitimate prediction
+- 📊 Prediction score display
+- 🔍 Influential TF-IDF features contributing to the prediction
+- 🧹 View of the processed text
+- 🤖 Model information
+
+### Example
+
+```text
+Input:
+"Congratulations! You have won a FREE prize. Click here to claim your reward!"
+
+Output:
+🚨 SPAM DETECTED
+```
+
+---
+
+## 📂 Project Structure
+
+```text
 email-spam-detection/
-├── app.py                     # Streamlit prediction interface
+│
+├── app.py
+├── README.md
 ├── requirements.txt
+├── .gitignore
+│
 ├── data/
-│   ├── generate_dataset.py    # Generates the sample training dataset
-│   └── spam.csv                # (created after running the generator)
-├── model/                     # Saved vectorizer + trained model (.pkl)
-├── src/
-│   ├── preprocess.py          # Text cleaning / tokenization utilities
-│   └── train.py                # Trains and saves the model
-└── README.md
+│   ├── prepare_dataset.py
+│   ├── generate_dataset.py
+│   └── spam.csv
+│
+├── model/
+│   ├── model_results.csv
+│   ├── spam_classifier.pkl
+│   └── vectorizer.pkl
+│
+├── notebooks/
+│   └── 01_EDA.ipynb
+│
+└── src/
+    ├── preprocess.py
+    └── train.py
 ```
 
-## Getting Started
+---
 
-### 1. Clone and set up a virtual environment
+## ⚙️ Run Locally
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/email-spam-detection.git
+git clone https://github.com/Priyanshu710-ui/email-spam-detection.git
 cd email-spam-detection
-python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
+```
+
+### 2. Create a virtual environment
+
+**Windows**
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**macOS / Linux**
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 2. Generate the dataset
+### 4. Prepare the dataset
 
-This repo ships with a script that generates a synthetic but realistic
-labeled dataset (`data/spam.csv`), so you can run everything immediately
-without hunting for external data.
+The repository expects `data/spam.csv` with `label` and `text` columns.
+
+To rebuild it from the raw SpamAssassin corpus, place the corpus folders inside `data/raw/` and run:
 
 ```bash
-python data/generate_dataset.py
+python data/prepare_dataset.py
 ```
 
-> Want to use a real-world dataset instead (e.g. the SMS Spam Collection
-> or Enron Spam dataset)? Just replace `data/spam.csv` with a CSV that has
-> two columns: `label` (`spam`/`ham`) and `text`.
-
-### 3. Train the model
+### 5. Train the models
 
 ```bash
 python src/train.py
 ```
 
-This will clean the text, extract TF-IDF features, train a Multinomial
-Naive Bayes classifier, print accuracy/precision/recall, and save the
-fitted vectorizer and model to `model/`.
+This creates:
 
-### 4. Launch the app
+```text
+model/spam_classifier.pkl
+model/vectorizer.pkl
+model/model_results.csv
+```
+
+### 6. Launch the application
 
 ```bash
 streamlit run app.py
 ```
 
-Paste in an email and click **Predict** to see whether it's classified as
-spam or legitimate, along with the model's confidence.
+---
 
-## Why Recruiters Love It
+## 🧪 EDA
 
-It's a simple project that demonstrates practical NLP, while still being
-understandable and deployable.
+The `notebooks/01_EDA.ipynb` notebook explores:
 
-## Resume Impact
+- Dataset shape and integrity
+- Missing values and duplicates
+- Ham vs spam distribution
+- Email-length distribution
+- Common words in spam emails
+- Common words in legitimate emails
+- Model performance comparison
 
-Shows experience working with unstructured text data and classification
-models.
+---
 
-## License
+## 🔍 Explainability
 
-MIT — feel free to use this project as a portfolio piece or starting point.
+The application uses the trained **Linear SVM coefficients** together with the email's TF-IDF representation to identify the words/phrases that contribute most strongly to the classification.
+
+For example, a spam prediction may surface terms such as:
+
+```text
+free
+claim
+prize
+click
+winner
+```
+
+These are presented as **influential model features**, not as a guarantee that a message is malicious.
+
+---
+
+## 🎯 Skills Demonstrated
+
+- Natural Language Processing
+- Text preprocessing
+- Tokenization
+- Stopword removal
+- Stemming
+- TF-IDF
+- N-gram feature engineering
+- Supervised machine learning
+- Model comparison
+- Precision / Recall / F1 evaluation
+- Class-imbalance awareness
+- Model persistence with pickle
+- Streamlit application development
+- Exploratory data analysis
+
+---
+
+## 🔮 Future Improvements
+
+- Calibrated probability estimates for the SVM
+- Precision-recall and ROC analysis
+- Cross-validation and stronger leakage checks
+- Automated model retraining
+- Containerized deployment
+- Larger and more diverse email corpora
+- Improved feature explanations and monitoring
+
+---
+
+## 👨‍💻 Author
+
+### Priyanshu Sharma
+
+Built as a practical NLP + machine-learning portfolio project focused on turning an end-to-end classification workflow into a usable application.
+
+⭐ **Star the repository if you found it useful!**
+
+---
+
+## 📄 License
+
+MIT License — feel free to use, modify, and learn from this project.
