@@ -2,83 +2,79 @@
 
 # 🛡️ SPAM SENTINEL
 
-### 📧 An NLP-powered email threat detector built for the real world.
+### 🧠 Production-style NLP Email Spam Detection
 
-**Detect. Explain. Classify.**
+**Detect spam. Understand why. Deploy it.**
 
 <p>
   <a href="https://github.com/Priyanshu710-ui/email-spam-detection"><img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github" alt="GitHub"></a>
-  <a href="https://email-spam-detection-hthq9z.streamlit.app"><img src="https://img.shields.io/badge/🚀%20Live%20Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo"></a>
+  <a href="https://email-spam-detection-hthq9z.streamlit.app"><img src="https://img.shields.io/badge/🚀%20LIVE%20DEMO-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo"></a>
   <img src="https://img.shields.io/badge/Python-3.12%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/NLP-TF--IDF-8B5CF6?style=for-the-badge" alt="NLP">
   <img src="https://img.shields.io/badge/ML-Linear%20SVM-FF6B35?style=for-the-badge" alt="Machine Learning">
+  <img src="https://img.shields.io/badge/App-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
 </p>
 
-<p><strong>4,273 real emails</strong> · <strong>3 ML models compared</strong> · <strong>98.60% test accuracy</strong> · <strong>0.980 spam F1</strong></p>
+<p>
+  <strong>4,273 real emails</strong> &nbsp;•&nbsp;
+  <strong>3 ML models</strong> &nbsp;•&nbsp;
+  <strong>98.60% accuracy</strong> &nbsp;•&nbsp;
+  <strong>0.980 spam F1</strong>
+</p>
 
 </div>
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Try It Now
 
-### Try it in your browser
+<p align="center">
+  <a href="https://email-spam-detection-hthq9z.streamlit.app"><strong>🛡️ OPEN SPAM SENTINEL →</strong></a>
+</p>
 
-**[🛡️ Launch Spam Sentinel](https://email-spam-detection-hthq9z.streamlit.app)**
+Paste an email, classify it, and inspect the model signals behind the prediction.
 
-Paste an email → run the classifier → see **SPAM** or **LEGITIMATE** with model insights.
-
-> The app is a portfolio/demo deployment. Reported model metrics come from the held-out test split used during training.
+> **Demo:** https://email-spam-detection-hthq9z.streamlit.app
 
 ---
 
-## 🧠 What Is Spam Sentinel?
+## ⚡ What This Project Does
 
-**Spam Sentinel** is an end-to-end **Natural Language Processing + Machine Learning** system that classifies emails as **Spam** or **Legitimate (Ham)**.
+Spam Sentinel is an end-to-end **Natural Language Processing + Machine Learning** system for classifying emails as **Spam** or **Legitimate (Ham)**.
 
-Instead of stopping at a notebook, the project takes the full journey:
+It is built as a complete ML workflow rather than a notebook-only experiment:
 
 ```text
-Real Email Corpus
-       ↓
-Data Cleaning & Deduplication
-       ↓
-NLP Preprocessing
-       ↓
-TF-IDF + Unigrams/Bigrams
-       ↓
-Model Training & Comparison
-       ↓
-Linear SVM 🏆
-       ↓
-Streamlit Web App
-       ↓
-Spam / Legitimate + Explanations
+📨 Raw Email Corpus
+        ↓
+🧹 Cleaning & Deduplication
+        ↓
+🧠 NLP Preprocessing
+        ↓
+🔤 TF-IDF + Unigrams / Bigrams
+        ↓
+🤖 Model Training & Benchmarking
+        ↓
+🏆 Linear SVM
+        ↓
+💾 Saved Model + Vectorizer
+        ↓
+🖥️ Streamlit Application
+        ↓
+🚨 SPAM / ✅ LEGITIMATE
+        ↓
+🔍 Influential Feature Explanation
 ```
 
-The result is a practical ML application rather than a model sitting unused inside a notebook.
+### The core idea
+
+**Turn messy email text into useful numerical features, train strong classical classifiers, select the best model, then wrap the result in a usable web app.**
 
 ---
 
-## 💥 Why This Project Stands Out
+## 🏆 Results That Matter
 
-| 🔥 | Capability | What it demonstrates |
-|---|---|---|
-| 📚 | **Real-world dataset** | Apache SpamAssassin public corpus |
-| 🧹 | **Data engineering** | Cleaning, parsing and exact duplicate removal |
-| 🧠 | **NLP pipeline** | Text normalization, tokenization and stopword handling |
-| 🔤 | **Feature engineering** | TF-IDF with unigrams + bigrams |
-| 🤖 | **Model benchmarking** | Naive Bayes vs Logistic Regression vs Linear SVM |
-| 🏆 | **Best model selection** | Linear SVM achieved the strongest held-out performance |
-| 🔍 | **Explainability** | Surfaces influential text features behind predictions |
-| 🖥️ | **Deployment** | Interactive Streamlit application |
-| 📊 | **EDA** | Dedicated notebook for dataset exploration |
-
----
-
-## 🏆 Model Performance
-
-Three classical text-classification approaches were trained and compared on the held-out test split.
+Three models were trained and evaluated on the held-out test split:
 
 | Model | Accuracy | Precision | Recall | F1 Score |
 |---|---:|---:|---:|---:|
@@ -86,87 +82,74 @@ Three classical text-classification approaches were trained and compared on the 
 | Logistic Regression | 98.13% | 96.70% | 97.99% | 97.34% |
 | **Linear SVM 🏆** | **98.60%** | **97.67%** | **98.33%** | **98.00%** |
 
-### 🥇 Winner: Linear SVM
+### 🥇 Best model: Linear SVM
 
-**98.60% accuracy** with a **0.980 spam F1-score** on the held-out test set.
+**98.60% accuracy** and **0.980 spam F1** on the held-out test set.
 
-> ⚠️ These numbers are evaluation results for this dataset and split. They should not be treated as guaranteed production accuracy on arbitrary future email traffic.
-
----
-
-## 🗂️ Dataset
-
-The project uses email messages from the **Apache SpamAssassin public corpus**.
-
-After cleaning and removing exact duplicates:
-
-| Class | Count |
-|---|---:|
-| ✅ Legitimate / Ham | 2,776 |
-| 🚨 Spam | 1,497 |
-| **Total** | **4,273** |
-
-### Why real data matters
-
-Spam detection depends on vocabulary, formatting, and patterns found in genuine messages. A real public corpus makes the workflow more meaningful than a tiny synthetic dataset.
-
-The raw corpus is **not committed to this repository**; `data/raw/` is ignored by Git.
+> ⚠️ These are dataset-specific evaluation results. They are not a guarantee of performance on arbitrary real-world email traffic.
 
 ---
 
-## ⚙️ NLP Pipeline
+## 🎯 Why Spam Sentinel Is More Than a Classifier
 
-Every message moves through a reproducible text-processing workflow:
+| Capability | What it shows |
+|---|---|
+| 📚 Real-world data | Apache SpamAssassin public corpus |
+| 🧹 Data cleaning | Parsing, normalization and exact duplicate removal |
+| 🧠 NLP | Text normalization, tokenization, stopword handling |
+| 🔤 Feature engineering | TF-IDF with unigrams + bigrams |
+| 🤖 Benchmarking | Naive Bayes vs Logistic Regression vs Linear SVM |
+| 🏆 Model selection | Best held-out performance drives model choice |
+| 🔍 Explainability | Influential text features for each prediction |
+| 🖥️ Deployment | Interactive Streamlit application |
+| 📊 EDA | Dataset exploration and performance analysis |
+| 💾 Reusability | Trained classifier and vectorizer persisted to disk |
+
+---
+
+## 🧠 NLP Pipeline
 
 ```text
-📩 Raw Email
-   │
-   ├── HTML cleanup
-   ├── URL normalization
-   ├── Whitespace normalization
-   ├── Tokenization
-   ├── Stopword removal
-   └── Stemming / normalization
-   │
-   ▼
-🔤 TF-IDF Vectorization
-   │
-   ├── Unigrams
-   └── Bigrams
-   │
-   ▼
-🤖 ML Classifier
-   │
-   ▼
-🚨 Spam / ✅ Legitimate
+📩 EMAIL
+  │
+  ├── HTML cleanup
+  ├── URL normalization
+  ├── Whitespace normalization
+  ├── Tokenization
+  ├── Stopword removal
+  └── Stemming / normalization
+  │
+  ▼
+🔤 TF-IDF VECTORIZATION
+  │
+  ├── Unigrams
+  └── Bigrams
+  │
+  ▼
+🤖 LINEAR CLASSIFIER
+  │
+  ▼
+┌─────────────────────────────┐
+│ 🚨 SPAM   │   ✅ LEGITIMATE │
+└─────────────────────────────┘
+  │
+  ▼
+🔍 FEATURE-LEVEL EXPLANATION
 ```
 
-This converts messy natural-language email content into sparse numerical features that classical machine-learning models can learn from effectively.
+### Why TF-IDF?
 
----
-
-## 🤖 Models Compared
-
-### 1. Multinomial Naive Bayes
-A strong baseline for sparse text classification.
-
-### 2. Logistic Regression
-A linear classifier that works well with high-dimensional TF-IDF representations.
-
-### 3. Linear SVM 🏆
-The best-performing model in this project, selected using the held-out evaluation results.
-
-The trained classifier and TF-IDF vectorizer are persisted in `model/` so the Streamlit app can load them directly.
+TF-IDF converts text into numerical features based on how informative terms are within the dataset. Combining **unigrams and bigrams** lets the model learn both individual words and short phrases.
 
 ---
 
 ## 🔍 Explainable Predictions
 
-Spam detection should not feel like a black box.
+Spam detection should not be a total black box.
 
-Spam Sentinel uses the trained **Linear SVM coefficients** together with the email's TF-IDF representation to identify influential terms contributing to a classification.
+Spam Sentinel uses the trained **Linear SVM coefficients** together with the email's TF-IDF representation to surface features that strongly influence the prediction.
 
-A spam prediction could surface signals such as:
+For example, an email might contain influential signals such as:
 
 ```text
 free
@@ -176,66 +159,80 @@ prize
 click
 ```
 
-These are **model features that influenced the prediction**, not proof that any individual word is inherently malicious.
+These are **model features**, not proof that any individual word is malicious by itself.
 
 ---
 
-## 🖥️ Streamlit App
+## 📧 Example
 
-The web app provides an interactive interface for testing emails in real time.
-
-### 🎯 Features
-
-- 🚨 Spam / ✅ Legitimate classification
-- 📊 Prediction score display
-- 🔍 Influential TF-IDF feature visualization
-- 🧹 Processed-text view
-- 🤖 Model information
-- ⚡ Instant predictions in the browser
-
-### Example
+### Input
 
 ```text
-Input:
-"Congratulations! You have won a FREE prize. Click here to claim your reward!"
+Congratulations! You have won a FREE prize.
+Click here to claim your reward now!
+```
 
-Prediction:
+### Output
+
+```text
 🚨 SPAM DETECTED
+
+Why?
+• Strong spam-associated vocabulary
+• Suspicious call-to-action language
+• Model confidence / score
+• Influential TF-IDF features
 ```
 
 ---
 
-## 📊 Project Architecture
+## 🗂️ Dataset
+
+The project uses email messages from the **Apache SpamAssassin public corpus**.
+
+After cleaning and removing exact duplicates:
+
+| Class | Emails |
+|---|---:|
+| ✅ Legitimate / Ham | 2,776 |
+| 🚨 Spam | 1,497 |
+| **Total** | **4,273** |
+
+The raw corpus is **not committed to the repository**; `data/raw/` is ignored by Git.
+
+---
+
+## 🏗️ Architecture
 
 ```text
-                         ┌──────────────────────┐
-                         │      User Email       │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │  Text Preprocessing  │
-                         │  HTML / URLs / Text  │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │      TF-IDF          │
-                         │  Uni + Bi-grams      │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                    ┌──────────────────────────────┐
-                    │        Linear SVM 🏆         │
-                    └──────────────┬───────────────┘
+                         ┌────────────────────┐
+                         │      USER EMAIL     │
+                         └─────────┬──────────┘
                                    │
-                     ┌─────────────┴─────────────┐
-                     ▼                           ▼
-              🚨 SPAM DETECTED           ✅ LEGITIMATE
-                     │                           │
-                     └─────────────┬─────────────┘
                                    ▼
-                         🔍 Feature Explanation
+                         ┌────────────────────┐
+                         │ TEXT PREPROCESSING │
+                         │ HTML / URLs / NLP  │
+                         └─────────┬──────────┘
+                                   │
+                                   ▼
+                         ┌────────────────────┐
+                         │       TF-IDF       │
+                         │  Uni + Bi-grams    │
+                         └─────────┬──────────┘
+                                   │
+                                   ▼
+                         ┌────────────────────┐
+                         │    LINEAR SVM 🏆   │
+                         └─────────┬──────────┘
+                                   │
+                         ┌─────────┴─────────┐
+                         ▼                   ▼
+                  🚨 SPAM DETECTED   ✅ LEGITIMATE
+                         │                   │
+                         └─────────┬─────────┘
+                                   ▼
+                         🔍 FEATURE EXPLANATION
 ```
 
 ---
@@ -270,16 +267,31 @@ email-spam-detection/
 
 ---
 
-## ⚡ Run It Locally
+## 🛠️ Tech Stack
 
-### 1️⃣ Clone the repository
+| Layer | Technology |
+|---|---|
+| 🐍 Language | Python 3.12+ |
+| 🧠 NLP | TF-IDF, tokenization, stopwords, stemming |
+| 🤖 ML | scikit-learn |
+| 🏆 Best Model | Linear SVM |
+| 🖥️ App | Streamlit |
+| 📊 Analysis | Pandas + Jupyter |
+| 💾 Persistence | Pickle |
+| 📚 Dataset | SpamAssassin public corpus |
+
+---
+
+## ⚙️ Run Locally
+
+### 1. Clone
 
 ```bash
 git clone https://github.com/Priyanshu710-ui/email-spam-detection.git
 cd email-spam-detection
 ```
 
-### 2️⃣ Create a virtual environment
+### 2. Create a virtual environment
 
 **Windows**
 
@@ -295,33 +307,33 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-### 3️⃣ Install dependencies
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Prepare the dataset
+### 4. Prepare the dataset
 
-The project expects `data/spam.csv` containing:
+The project expects:
 
 ```text
 label,text
 ```
 
-To rebuild it from the raw SpamAssassin corpus, place the corpus folders in `data/raw/` and run:
+To rebuild `data/spam.csv` from the raw SpamAssassin corpus, place the corpus folders inside `data/raw/` and run:
 
 ```bash
 python data/prepare_dataset.py
 ```
 
-### 5️⃣ Train the models
+### 5. Train the models
 
 ```bash
 python src/train.py
 ```
 
-This generates:
+Generated artifacts:
 
 ```text
 model/spam_classifier.pkl
@@ -329,84 +341,73 @@ model/vectorizer.pkl
 model/model_results.csv
 ```
 
-### 6️⃣ Launch the app
+### 6. Launch the application
 
 ```bash
 streamlit run app.py
 ```
 
-Then open the local Streamlit URL shown in your terminal.
-
 ---
 
-## 🔬 Exploratory Data Analysis
+## 📊 Exploratory Data Analysis
 
-The `notebooks/01_EDA.ipynb` notebook investigates:
+The EDA notebook covers:
 
 - Dataset shape and integrity
 - Missing values and duplicates
 - Ham vs spam distribution
 - Email-length distribution
-- Common words in spam
-- Common words in legitimate messages
+- Common spam vocabulary
+- Common legitimate vocabulary
 - Model performance comparison
+
+Notebook:
+
+```text
+notebooks/01_EDA.ipynb
+```
 
 ---
 
-## 🧪 Example Workflow
+## 🧪 End-to-End Workflow
 
 ```text
 Paste email
      ↓
 Click classify
      ↓
-Clean + transform text
+Clean + preprocess
      ↓
-Generate TF-IDF representation
+Transform with TF-IDF
      ↓
 Run Linear SVM
      ↓
 Return class + score
      ↓
-Show influential features
+Surface influential features
 ```
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Language | **Python 3.12+** |
-| NLP | **TF-IDF, tokenization, stopwords, stemming** |
-| ML | **scikit-learn** |
-| Best Model | **Linear SVM** |
-| App | **Streamlit** |
-| Data Analysis | **Pandas + Jupyter** |
-| Model Persistence | **Pickle** |
-| Dataset | **SpamAssassin public corpus** |
 
 ---
 
 ## 🎓 Skills Demonstrated
 
-This project covers a complete applied-ML workflow:
+This project demonstrates a complete applied machine-learning workflow:
 
-**Data → Cleaning → NLP → Feature Engineering → Training → Benchmarking → Explainability → Deployment**
+**Data → Cleaning → NLP → Feature Engineering → Training → Evaluation → Model Selection → Explainability → Deployment**
 
-Core skills demonstrated:
+Key concepts:
 
 - Natural Language Processing
 - Text preprocessing
 - TF-IDF feature engineering
 - Unigram / bigram modeling
 - Supervised machine learning
-- Model comparison
-- Precision / Recall / F1 evaluation
-- Class-imbalance awareness
-- Model persistence
+- Model benchmarking
+- Precision, Recall and F1
 - Exploratory data analysis
+- Model persistence
 - Streamlit deployment
+- Feature-level interpretability
 
 ---
 
@@ -429,13 +430,29 @@ Core skills demonstrated:
 
 ---
 
-## 📌 Project Takeaway
+## 💡 Project Takeaway
 
-Spam detection is not just about training a classifier.
+A spam detector is more interesting when it works as a **system**.
 
-The interesting engineering challenge is building the **whole system** around the model: cleaning messy text, choosing useful representations, benchmarking multiple algorithms, explaining predictions, persisting the winning pipeline, and exposing it through a usable interface.
+Spam Sentinel connects the pieces that matter in a real ML workflow:
 
-**That is what Spam Sentinel is built to demonstrate.**
+```text
+REAL DATA
+   +
+CLEAN PIPELINE
+   +
+USEFUL FEATURES
+   +
+MODEL COMPARISON
+   +
+EXPLAINABILITY
+   +
+DEPLOYMENT
+   =
+A COMPLETE ML APPLICATION 🚀
+```
+
+The goal is not just to predict **spam vs legitimate** — it is to demonstrate how a text-classification model can be engineered into something people can actually use.
 
 ---
 
@@ -443,17 +460,19 @@ The interesting engineering challenge is building the **whole system** around th
 
 ### Priyanshu Sharma
 
-Built as a practical **NLP + Machine Learning portfolio project** focused on turning an end-to-end text-classification workflow into a usable application.
+Built as a practical **NLP + Machine Learning portfolio project**.
 
-**Repository:** https://github.com/Priyanshu710-ui/email-spam-detection  
-**Live Demo:** https://email-spam-detection-hthq9z.streamlit.app
+<p>
+  <a href="https://github.com/Priyanshu710-ui/email-spam-detection">📦 Repository</a> •
+  <a href="https://email-spam-detection-hthq9z.streamlit.app">🚀 Live Demo</a>
+</p>
 
 ---
 
 <div align="center">
 
-## ⭐ Like the project?
+### ⭐ Like Spam Sentinel?
 
-**Star the repo • Try the demo • Explore the code • Build something cool** 🚀
+**Star the repo • Try the demo • Explore the pipeline • Build something cool** 🚀
 
 </div>
